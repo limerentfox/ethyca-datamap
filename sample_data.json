@@ -1,207 +1,306 @@
 [
-  {
-    "systemKey": "store-app",
-    "systemType": "SYSTEM",
-    "name": "Example.com Online Storefront",
-    "description": "Storefront application to search for products, browse sales and promotions, review product information, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "ip_address", "location_data" ],
-        "dataUse": [ "third_party_advertising" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "user_provided_email" ],
-        "dataUse": [ "first_party_advertising" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "unique_id" ],
-        "dataUse": [ "improve_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": [
-      "app-database",
-      "search-database",
-      "advertising-integration",
-      "email-integration",
-      "analytics-integration"
-    ]
-  },
-  {
-    "systemKey": "checkout-app",
-    "systemType": "SYSTEM",
-    "name": "Example.com Checkout",
-    "description": "Checkout application to collect payment details and submit orders for processing",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "payment_data" ],
-        "dataUse": [ "provide_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "unique_id", "ip_address", "location_data" ],
-        "dataUse": [ "third_party_advertising" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "unique_id" ],
-        "dataUse": [ "improve_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": [
-      "app-database",
-      "orders-service",
-      "advertising-integration",
-      "analytics-integration",
-      "payments-integration"
-    ]
-  },
-  {
-    "systemKey": "orders-service",
-    "systemType": "SYSTEM",
-    "name": "Orders Management",
-    "description": "Backend service to process new customer orders, manage inventory, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "financial_data" ],
-        "dataUse": [ "provide_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "unique_id" ],
-        "dataUse": [ "improve_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": [
-      "app-database",
-      "analytics-integration",
-      "payments-integration"
-    ]
-  },
-  {
-    "systemKey": "orders-service",
-    "systemType": "SYSTEM",
-    "name": "Orders Management",
-    "description": "Backend service to process new customer orders, manage inventory, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "financial_data" ],
-        "dataUse": [ "provide_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      },
-      {
-        "dataCategories": [ "unique_id" ],
-        "dataUse": [ "improve_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": [
-      "app-database",
-      "analytics-integration",
-      "payments-integration"
-    ]
-  },
-  {
-    "systemKey": "app-database",
-    "systemType": "DATABASE",
-    "name": "Example.com Database",
-    "description": "Primary database used to manage account, orders, product, payment data, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "financial_data" ],
-        "dataUse": [ "provide_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "search-database",
-    "systemType": "DATABASE",
-    "name": "Example.com Search Engine",
-    "description": "Search engine used to index product data and provide search results and product recommendations",
-    "declarations": [],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "payments-integration",
-    "systemType": "INTEGRATION",
-    "name": "Stripe",
-    "description": "Payments processing integration for eCommerce orders",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "financial_data" ],
-        "dataUse": [ "provide_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "email-integration",
-    "systemType": "INTEGRATION",
-    "name": "Mailchimp",
-    "description": "Email marketing integration to send emails, manage subscriber lists, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "user_provided_email" ],
-        "dataUse": [ "first_party_advertising" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "advertising-integration",
-    "systemType": "INTEGRATION",
-    "name": "Google Ads",
-    "description": "Advertising integration to collect audience data and display ads and retargeting campaigns to users",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "ip_address", "location_data" ],
-        "dataUse": [ "third_party_advertising" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "analytics-integration",
-    "systemType": "INTEGRATION",
-    "name": "Google Analytics",
-    "description": "Analytics integration to track website usage, conversion funnels, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id" ],
-        "dataUse": [ "improve_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": []
-  },
-  {
-    "systemKey": "privacy-app",
-    "systemType": "SYSTEM",
-    "name": "Ethyca",
-    "description": "Privacy platform to automate the collection and processing of data subject requests for GDPR, CCPA, etc.",
-    "declarations": [
-      {
-        "dataCategories": [ "unique_id", "user_provided_email", "ip_address", "location_data" ],
-        "dataUse": [ "support_the_product_or_service" ],
-        "dataSubject": [ "customer" ]
-      }
-    ],
-    "systemDependencies": [
-      "app-database",
-      "search-database",
-      "payments-integration",
-      "email-integration",
-      "advertising-integration",
-      "analytics-integration"
-    ]
-  }
+   {
+      "description" : "Storefront application to search for products, browse sales and promotions, review product information, etc.",
+      "fides_key" : "store_app",
+      "name" : "Example.com Online Storefront",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.derived.identifiable.device.ip_address",
+               "user.derived.identifiable.location"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "advertising.third_party",
+            "name" : "Online Advertising"
+         },
+         {
+            "data_categories" : [
+               "user.provided.identifiable.contact.email"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "advertising.first_party",
+            "name" : "Email Marketing"
+         },
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "improve.system",
+            "name" : "Product Analytics"
+         }
+      ],
+      "system_dependencies" : [
+         "app_database",
+         "search_database",
+         "advertising_integration",
+         "email_integration",
+         "analytics_integration"
+      ],
+      "system_type" : "Application"
+   },
+   {
+      "description" : "Checkout application to collect payment details and submit orders for processing",
+      "fides_key" : "checkout_app",
+      "name" : "Example.com Checkout",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.provided.identifiable.financial"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system",
+            "name" : "eCommerce"
+         },
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.derived.identifiable.device.ip_address",
+               "user.derived.identifiable.location"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "advertising.third_party",
+            "name" : "Online Advertising"
+         },
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "improve.system",
+            "name" : "Product Analytics"
+         }
+      ],
+      "system_dependencies" : [
+         "app_database",
+         "orders_service",
+         "advertising_integration",
+         "analytics_integration",
+         "payments_integration"
+      ],
+      "system_type" : "Application"
+   },
+   {
+      "description" : "Backend service to process new customer orders, manage inventory, etc.",
+      "fides_key" : "orders_service",
+      "name" : "Orders Management",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.provided.identifiable.financial"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system",
+            "name" : "eCommerce"
+         },
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "improve.system",
+            "name" : "Product Analytics"
+         }
+      ],
+      "system_dependencies" : [
+         "app_database",
+         "analytics_integration",
+         "payments_integration"
+      ],
+      "system_type" : "Service"
+   },
+   {
+      "description" : "Backend service to process new customer orders, manage inventory, etc.",
+      "fides_key" : "orders_service",
+      "name" : "Orders Management",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.provided.identifiable.financial"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system",
+            "name" : "eCommerce"
+         },
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "improve.system",
+            "name" : "Product Analytics"
+         }
+      ],
+      "system_dependencies" : [
+         "app_database",
+         "analytics_integration",
+         "payments_integration"
+      ],
+      "system_type" : "Service"
+   },
+   {
+      "description" : "Primary database used to manage account, orders, product, payment data, etc.",
+      "fides_key" : "app_database",
+      "name" : "Example.com Database",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.provided.identifiable.financial"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system",
+            "name" : "eCommerce"
+         }
+      ],
+      "system_dependencies" : [],
+      "system_type" : "Database"
+   },
+   {
+      "description" : "Search engine used to index product data and provide search results and product recommendations",
+      "fides_key" : "search_database",
+      "name" : "Example.com Search Engine",
+      "privacy_declarations" : [],
+      "system_dependencies" : [],
+      "system_type" : "Database"
+   },
+   {
+      "description" : "Payments processing integration for eCommerce orders",
+      "fides_key" : "payments_integration",
+      "name" : "Stripe",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.provided.identifiable.financial"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system",
+            "name" : "eCommerce"
+         }
+      ],
+      "system_dependencies" : [],
+      "system_type" : "Integration"
+   },
+   {
+      "description" : "Email marketing integration to send emails, manage subscriber lists, etc.",
+      "fides_key" : "email_integration",
+      "name" : "Mailchimp",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.provided.identifiable.contact.email"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "advertising.first_party",
+            "name" : "Email Marketing"
+         }
+      ],
+      "system_dependencies" : [],
+      "system_type" : "Integration"
+   },
+   {
+      "description" : "Advertising integration to collect audience data and display ads and retargeting campaigns to users",
+      "fides_key" : "advertising_integration",
+      "name" : "Google Ads",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.derived.identifiable.device.ip_address",
+               "user.derived.identifiable.location"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "advertising.third_party",
+            "name" : "Online Advertising"
+         }
+      ],
+      "system_dependencies" : [],
+      "system_type" : "Integration"
+   },
+   {
+      "description" : "Analytics integration to track website usage, conversion funnels, etc.",
+      "fides_key" : "analytics_integration",
+      "name" : "Google Analytics",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "improve.system",
+            "name" : "Product Analytics"
+         }
+      ],
+      "system_dependencies" : [],
+      "system_type" : "Integration"
+   },
+   {
+      "description" : "Privacy platform to automate the collection and processing of data subject requests for GDPR, CCPA, etc.",
+      "fides_key" : "privacy_app",
+      "name" : "Ethyca",
+      "privacy_declarations" : [
+         {
+            "data_categories" : [
+               "user.derived.identifiable.device.cookie_id",
+               "user.provided.identifiable.contact.email",
+               "user.derived.identifiable.device.ip_address",
+               "user.derived.identifiable.location"
+            ],
+            "data_subjects" : [
+               "customer"
+            ],
+            "data_use" : "provide.system.operations.support",
+            "name" : "Privacy Requests"
+         }
+      ],
+      "system_dependencies" : [
+         "app_database",
+         "search_database",
+         "payments_integration",
+         "email_integration",
+         "advertising_integration",
+         "analytics_integration"
+      ],
+      "system_type" : "Application"
+   }
 ]

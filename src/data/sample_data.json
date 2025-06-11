@@ -131,41 +131,6 @@
       "system_type" : "Service"
    },
    {
-      "description" : "Backend service to process new customer orders, manage inventory, etc.",
-      "fides_key" : "orders_service",
-      "name" : "Orders Management",
-      "privacy_declarations" : [
-         {
-            "data_categories" : [
-               "user.derived.identifiable.device.cookie_id",
-               "user.provided.identifiable.contact.email",
-               "user.provided.identifiable.financial"
-            ],
-            "data_subjects" : [
-               "customer"
-            ],
-            "data_use" : "provide.system",
-            "name" : "eCommerce"
-         },
-         {
-            "data_categories" : [
-               "user.derived.identifiable.device.cookie_id"
-            ],
-            "data_subjects" : [
-               "customer"
-            ],
-            "data_use" : "improve.system",
-            "name" : "Product Analytics"
-         }
-      ],
-      "system_dependencies" : [
-         "app_database",
-         "analytics_integration",
-         "payments_integration"
-      ],
-      "system_type" : "Service"
-   },
-   {
       "description" : "Primary database used to manage account, orders, product, payment data, etc.",
       "fides_key" : "app_database",
       "name" : "Example.com Database",

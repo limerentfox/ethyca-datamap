@@ -217,9 +217,9 @@ Given additional time, here are the areas I would focus on to improve structure,
 * Add **integration tests** to ensure UI flows (e.g. toggling, filtering, resets) work as expected
 * Include **security-focused tests** (e.g. sanitizing system names/descriptions to prevent XSS), especially since the app deals with user-generated metadata
 
+---
 
 ## 💬 Challenge Feedback
-
 First off — thank you! This was one of the most thoughtfully open-ended and well-scoped take-home challenges I’ve worked on.
 
 ### 🙌 What Went Well
